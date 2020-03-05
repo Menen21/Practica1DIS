@@ -13,8 +13,7 @@ public class Cliente {
 				+ ", codpostal=" + codpostal + "]";
 	}
 
-	public Cliente(String nombre, String apellidos, String email, String calle, String poblacion, String pais, int telf,
-			int numcalle, int codpostal) {
+	public Cliente(String nombre, String apellidos, String email, String calle, String poblacion, String pais, int telf, int numcalle, int codpostal) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;

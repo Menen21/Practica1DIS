@@ -14,8 +14,7 @@ public class Producto {
 				+ descripcion + "]";
 	}
 
-	public Producto(int codigo, int stock, int pasillo, int estanteria, int estante, int pendiente, String nombre,
-			String descripcion) {
+	public Producto(int codigo, int stock, int pasillo, int estanteria, int estante, int pendiente, String nombre, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.stock = stock;

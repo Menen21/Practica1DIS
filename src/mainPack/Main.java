@@ -6,8 +6,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Main {
+
 
 	public static void generateMenu() {
 		System.out.println("-------------------");
@@ -31,25 +33,73 @@ public class Main {
 	
 	public static Producto showSubmenuProducto() throws IOException {
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		int codigo , stock, pasillo, estanteria, estante,pendiente;
+		int codigo = 0 , stock = 0, pasillo = 0, estanteria = 0, estante = 0,pendiente = 0;
 		String nombre = null, descripcion = null;
-		System.out.println("Código:");
-		codigo = Integer.parseInt(in.readLine());
+		boolean success = false;
+		while (!success) {
+            try {
+            	System.out.println("Código:");
+        		codigo = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
 		System.out.println("Nombre:");
 		nombre = in.readLine();
 		System.out.println("Descripción:");
 		descripcion = in.readLine();
-		System.out.println("Unidades en stock:");
-		stock = Integer.parseInt(in.readLine());
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Unidades en stock:");
+        		stock = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
 		System.out.println("Localización:");
-		System.out.println("Pasillo:");
-		pasillo = Integer.parseInt(in.readLine());
-		System.out.println("Estantería:");
-		estanteria = Integer.parseInt(in.readLine());
-		System.out.println("Estante:");
-		estante = Integer.parseInt(in.readLine());
-		System.out.println("Pendientes de entrada al almacén:");
-		pendiente = Integer.parseInt(in.readLine());
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Pasillo:");
+        		pasillo = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Estantería:");
+        		estanteria = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Estante:");
+        		estante = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Pendientes de entrada al almacén:");
+        		pendiente = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
 		Producto producto = new Producto(codigo, stock, pasillo, estanteria, estante, pendiente, nombre, descripcion);
 		return producto;
 	}
@@ -57,22 +107,46 @@ public class Main {
 	public static Cliente showSubmenuCliente() throws IOException {
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String nombre = null, apellidos = null, email = null, calle = null, poblacion = null, pais = null;
-		int telf, numcalle, codpostal;
+		int telf = 0, numcalle = 0, codpostal = 0;
+		boolean success = false;
 		System.out.println("Nombre:");
 		nombre = in.readLine();
 		System.out.println("Apellidos:");
 		apellidos = in.readLine();
 		System.out.println("Email:");
 		email = in.readLine();
-		System.out.println("Telf Contacto:");
-		telf = Integer.parseInt(in.readLine());
+		while (!success) {
+            try {
+        		System.out.println("Telf Contacto:");
+        		telf = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
 		System.out.println("Dirección:");
 		System.out.println("Calle:");
 		calle = in.readLine();
-		System.out.println("Número:");
-		numcalle = Integer.parseInt(in.readLine());
-		System.out.println("Código postal:");
-		codpostal = Integer.parseInt(in.readLine());
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Número:");
+        		numcalle = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Código postal:");
+        		codpostal = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
 		System.out.println("Población:");
 		poblacion = in.readLine();
 		System.out.println("País:");
@@ -87,6 +161,16 @@ public class Main {
 		Cliente destinatario = null;
 		String fecha = null;
 		int cantidad = 0;
+		boolean success = false;
+		while (!success) {
+            try {
+        		System.out.println("Número:");
+        		cantidad = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
 		Pedido pedido = new Pedido(producto, destinatario, cantidad, fecha);
 		return pedido;
 	}
