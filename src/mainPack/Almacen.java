@@ -6,9 +6,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Almacen")
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = { "producto","cliente","pedido" })
 public class Almacen implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -17,8 +19,8 @@ public class Almacen implements Serializable{
 	private List <Cliente> cliente;
 	private List <Pedido> pedido;
 	
+	
 	@XmlElementWrapper(name="productos")
-//	@XmlElement(name="Producto")
 	public List<Producto> getProducto() {
 		return producto;
 	}
@@ -26,8 +28,8 @@ public class Almacen implements Serializable{
 	public void setProducto(List<Producto> producto) {
 		this.producto = producto;
 	}
+	
 	@XmlElementWrapper(name="clientes")
-//	@XmlElement(name="Cliente")
 	public List<Cliente> getCliente() {
 		return cliente;
 	}
@@ -35,8 +37,8 @@ public class Almacen implements Serializable{
 	public void setCliente(List<Cliente> cliente) {
 		this.cliente = cliente;
 	}
+	
 	@XmlElementWrapper(name="pedidos")
-//	@XmlElement(name="Pedido")
 	public List<Pedido> getPedido() {
 		return pedido;
 	}

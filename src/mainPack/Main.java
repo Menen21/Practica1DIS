@@ -22,6 +22,7 @@ public class Main {
 		System.out.println("2.- Introducir Cliente");
 		System.out.println("3.- Introducir Pedido");
 		System.out.println("4.- Guardar en XML");
+		System.out.println("9.- Leer datos de XML");
 		System.out.println("0.- Quit");
 	}
 		
@@ -48,7 +49,8 @@ public class Main {
         estante = in.readLine();
         System.out.println("Pendientes de entrada al almacén:");
         pendiente = in.readLine();
-		Producto producto = new Producto(codigo, stock, pasillo, estanteria, estante, pendiente, nombre, descripcion);
+        Localizacion localizacion = new Localizacion(pasillo, estanteria, estante);
+		Producto producto = new Producto(nombre, descripcion, codigo, stock, localizacion, pendiente);
 		return producto;
 	}
 	
@@ -77,7 +79,8 @@ public class Main {
 		poblacion = in.readLine();
 		System.out.println("País:");
 		pais = in.readLine();
-		Cliente cliente = new Cliente(nombre, apellidos, email, calle, poblacion, pais, telf, numcalle, codpostal);
+        Direccion direccion = new Direccion(calle, numcalle, poblacion, pais, codpostal);
+		Cliente cliente = new Cliente(nombre, apellidos, email, telf, direccion);
 		return cliente;
 	}
 	
@@ -106,7 +109,8 @@ public class Main {
 		poblacion = in.readLine();
 		System.out.println("Fecha de entrega estimada:");
         fechaestimada = in.readLine();
-		Pedido pedido = new Pedido(producto, cantidad, calle, numcalle, codpostal, poblacion, pais, destinatario, fechaestimada);
+        Direccion direccion = new Direccion(calle, numcalle, poblacion, pais, codpostal);
+		Pedido pedido = new Pedido(producto, destinatario, cantidad, fechaestimada, direccion);
 		return pedido;
 	}
 	
@@ -168,6 +172,10 @@ public class Main {
 				almacen.setPedido(Pedidos);
 
 				jaxbObjectToXML(almacen);
+
+				break;
+				
+			case 9:
 
 				break;
 			case 0:

@@ -1,40 +1,41 @@
 package mainPack;
 
+import java.io.Serializable;
+import java.util.List;
+
+import java.util.List;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Cliente")
-public class Cliente {
-	private String nombre, apellidos, email, calle, poblacion, pais,numcalle, codpostal, telf;
-	
-	
-	
-	@Override
-	public String toString() {
-		return "Cliente [nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", calle=" + calle
-				+ ", poblacion=" + poblacion + ", pais=" + pais + ", telf=" + telf + ", numcalle=" + numcalle
-				+ ", codpostal=" + codpostal + "]";
-	}
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = { "nombre", "apellidos", "email", "telf", "direccion" })
+public class Cliente implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	private String nombre, apellidos, email, telf;
+	private Direccion direccion;
 	
 	public Cliente() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Cliente(String nombre, String apellidos, String email, String calle, String poblacion, String pais, String telf, String numcalle, String codpostal) {
+	public Cliente(String nombre, String apellidos, String email, String telf, Direccion direccion) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
-		this.calle = calle;
-		this.poblacion = poblacion;
-		this.pais = pais;
 		this.telf = telf;
-		this.numcalle = numcalle;
-		this.codpostal = codpostal;
+		this.direccion = direccion;
 	}
-
+	
+	@XmlElement(name= "nombre")
 	public String getNombre() {
 		return nombre;
 	}
@@ -42,7 +43,8 @@ public class Cliente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
+	@XmlElement(name= "apellidos")
 	public String getApellidos() {
 		return apellidos;
 	}
@@ -51,6 +53,7 @@ public class Cliente {
 		this.apellidos = apellidos;
 	}
 
+	@XmlElement(name= "email")
 	public String getEmail() {
 		return email;
 	}
@@ -58,7 +61,8 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	@XmlElement(name= "telefono")
 	public String getTelf() {
 		return telf;
 	}
@@ -67,48 +71,16 @@ public class Cliente {
 		this.telf = telf;
 	}
 
-	public String getCalle() {
-		return calle;
+	@XmlElement(name= "direccion")
+	public Direccion getDireccion() {
+		return direccion;
 	}
 
-	public void setCalle(String calle) {
-		this.calle = calle;
-	}
-
-	public String getPoblacion() {
-		return poblacion;
-	}
-
-	public void setPoblacion(String poblacion) {
-		this.poblacion = poblacion;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
 	}
 
 
-	public String getNumcalle() {
-		return numcalle;
-	}
 
-	public void setNumcalle(String numcalle) {
-		this.numcalle = numcalle;
-	}
-
-	public String getCodpostal() {
-		return codpostal;
-	}
-
-	public void setCodpostal(String codpostal) {
-		this.codpostal = codpostal;
-	}
-	
-	
-	
 
 }

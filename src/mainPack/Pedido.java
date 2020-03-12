@@ -1,19 +1,22 @@
 package mainPack;
 
+import java.util.List;
+import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Pedido")
-public class Pedido {
+@XmlAccessorType(XmlAccessType.NONE)
+@XmlType(propOrder = { "producto", "cantidad", "destinatario", "direccion", "fechaestimada" })
+public class Pedido implements Serializable {
 	
-	private String producto, calle, poblacion, pais, destinatario, cantidad, fechaestimada, numcalle, codpostal;
-	
-	@Override
-	public String toString() {
-		return "Pedido [producto=" + producto + ", calle=" + calle + ", poblacion=" + poblacion + ", pais=" + pais
-				+ ", destinatario=" + destinatario + ", cantidad=" + cantidad + ", fechaestimada=" + fechaestimada
-				+ ", numcalle=" + numcalle + ", codpostal=" + codpostal + "]";
-	}
-
+	private static final long serialVersionUID = 1L;
+	private String producto,  destinatario, cantidad, fechaestimada;
+	private Direccion direccion;
 	
 	
 	public Pedido() {
@@ -22,23 +25,17 @@ public class Pedido {
 	}
 
 
-
-	public Pedido(String producto, String calle, String poblacion, String pais, String destinatario, String cantidad,
-			String fechaestimada, String numcalle, String codpostal) {
+	public Pedido(String producto, String destinatario, String cantidad, String fechaestimada, Direccion direccion) {
 		super();
 		this.producto = producto;
-		this.calle = calle;
-		this.poblacion = poblacion;
-		this.pais = pais;
 		this.destinatario = destinatario;
 		this.cantidad = cantidad;
 		this.fechaestimada = fechaestimada;
-		this.numcalle = numcalle;
-		this.codpostal = codpostal;
+		this.direccion = direccion;
 	}
 
 
-
+	@XmlElement(name= "producto")
 	public String getProducto() {
 		return producto;
 	}
@@ -51,42 +48,7 @@ public class Pedido {
 
 
 
-	public String getCalle() {
-		return calle;
-	}
-
-
-
-	public void setCalle(String calle) {
-		this.calle = calle;
-	}
-
-
-
-	public String getPoblacion() {
-		return poblacion;
-	}
-
-
-
-	public void setPoblacion(String poblacion) {
-		this.poblacion = poblacion;
-	}
-
-
-
-	public String getPais() {
-		return pais;
-	}
-
-
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-
-
+	@XmlElement(name= "destinatario")
 	public String getDestinatario() {
 		return destinatario;
 	}
@@ -99,6 +61,7 @@ public class Pedido {
 
 
 
+	@XmlElement(name= "cantidad")
 	public String getCantidad() {
 		return cantidad;
 	}
@@ -111,6 +74,7 @@ public class Pedido {
 
 
 
+	@XmlElement(name= "fecha_entrega_estimada")
 	public String getFechaestimada() {
 		return fechaestimada;
 	}
@@ -122,27 +86,15 @@ public class Pedido {
 	}
 
 
-
-	public String getNumcalle() {
-		return numcalle;
+	@XmlElement(name= "direccion")
+	public Direccion getDireccion() {
+		return direccion;
 	}
 
 
 
-	public void setNumcalle(String numcalle) {
-		this.numcalle = numcalle;
-	}
-
-
-
-	public String getCodpostal() {
-		return codpostal;
-	}
-
-
-
-	public void setCodpostal(String codpostal) {
-		this.codpostal = codpostal;
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
 	}
 
 
