@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE Example SYSTEM  "example.dtd">
+<!DOCTYPE Example SYSTEM  "DTD.dtd">
 <Almacen>
     <productos>
         <producto>
-            <codigo>asddsasda</codigo>
-            <nombre>dsa</nombre>
-            <descripcion>saddsa</descripcion>
+            <codigo>asdas</codigo>
+            <nombre>sda</nombre>
+            <descripcion>asd</descripcion>
             <stock>dsa</stock>
             <localizacion>
-                <pasillo>da</pasillo>
-                <estanteria>sda</estanteria>
-                <estante>sad</estante>
+                <pasillo>das</pasillo>
+                <estanteria>das</estanteria>
+                <estante>das</estante>
             </localizacion>
             <pendiente>asd</pendiente>
         </producto>
         <producto>
-            <codigo>nue</codigo>
-            <nombre>n</nombre>
-            <descripcion>n</descripcion>
-            <stock>n</stock>
+            <codigo>l</codigo>
+            <nombre>l</nombre>
+            <descripcion>l</descripcion>
+            <stock>l</stock>
             <localizacion>
-                <pasillo>n</pasillo>
-                <estanteria>n</estanteria>
-                <estante>n</estante>
+                <pasillo>l</pasillo>
+                <estanteria>l</estanteria>
+                <estante>l</estante>
             </localizacion>
-            <pendiente>n</pendiente>
+            <pendiente>l</pendiente>
+        </producto>
+        <producto>
+            <codigo>4</codigo>
+            <nombre>gfh</nombre>
+            <descripcion>gfh</descripcion>
+            <stock>ghf</stock>
+            <localizacion>
+                <pasillo>gf</pasillo>
+                <estanteria>fgh</estanteria>
+                <estante>fgh</estante>
+            </localizacion>
+            <pendiente>ghf</pendiente>
         </producto>
     </productos>
     <clientes>
         <cliente>
-            <nombre>sad</nombre>
-            <apellidos>das</apellidos>
-            <email>das</email>
-            <telefono>dsa</telefono>
+            <nombre>sda</nombre>
+            <apellidos>asd</apellidos>
+            <email>asd</email>
+            <telefono>asd</telefono>
             <direccion>
-                <calle>das</calle>
-                <numero_calle>ads</numero_calle>
-                <cod_postal>sda</cod_postal>
-                <poblacion>ads</poblacion>
-                <pais>dsa</pais>
+                <calle>sda</calle>
+                <numero_calle>sad</numero_calle>
+                <cod_postal>asd</cod_postal>
+                <poblacion>sda</poblacion>
+                <pais>as</pais>
             </direccion>
         </cliente>
     </clientes>
     <pedidos>
         <pedido>
             <producto>sda</producto>
-            <cantidad>dsa</cantidad>
+            <cantidad>das</cantidad>
             <direccion>
-                <calle>dsa</calle>
-                <numero_calle>sda</numero_calle>
-                <cod_postal>ads</cod_postal>
-                <poblacion>asd</poblacion>
-                <pais>das</pais>
+                <calle>sad</calle>
+                <numero_calle>sad</numero_calle>
+                <cod_postal>asd</cod_postal>
+                <poblacion>sad</poblacion>
+                <pais>asd</pais>
             </direccion>
-            <fecha_entrega_estimada>das</fecha_entrega_estimada>
+            <fecha_entrega_estimada>sda</fecha_entrega_estimada>
         </pedido>
     </pedidos>
 </Almacen>

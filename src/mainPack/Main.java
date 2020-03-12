@@ -2,14 +2,10 @@ package mainPack;
 
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -128,7 +124,7 @@ public class Main {
             JAXBContext jaxbContext = JAXBContext.newInstance(Almacen.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            jaxbMarshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", "\n<!DOCTYPE Example SYSTEM  \"example.dtd\">");
+            jaxbMarshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", "\n<!DOCTYPE Example SYSTEM  \"DTD.dtd\">");
  
             File file = new File("almacen.xml");
              
@@ -136,7 +132,8 @@ public class Main {
             
  
         } catch (JAXBException e) {
-            e.printStackTrace();
+
+            System.out.println("No ha podido leerse el fichero");
         }
     }
 	
@@ -151,7 +148,16 @@ public class Main {
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		while (menu != 0) {
 			generateMenu();
-			menu = Integer.parseInt(in.readLine());
+			
+			try {
+				menu = Integer.parseInt(in.readLine());
+			} catch (NumberFormatException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Introduzca un número válido");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				System.out.println("Introduzca un número válido");
+			}
 			
 			switch (menu) {
 			case 1:
@@ -174,30 +180,24 @@ public class Main {
 				jaxbObjectToXML(almacen);
 
 				break;
-			case 5:
 				
+			case 5:
 				System.out.println(Productos.isEmpty());
 				System.out.println(Clientes.isEmpty());
 				System.out.println(Pedidos.isEmpty());
 				
 				break;
-			case 9:
-				
-//				File file = new File("xml.xml");
-//				JAXBContext jaxbContext = JAXBContext.newInstance(Clase.class);  
-//		        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();  
-//		        Clase clase= (Clase) jaxbUnmarshaller.unmarshal(file);  
-//		        List <Alumno> list = clase.getAlumno();
-				
+			case 9:				
 				File xmlFile = new File("almacen.xml");
 				 
 				JAXBContext jaxbContext;
 				try
 				{
-				    jaxbContext = JAXBContext.newInstance(Almacen.class);              
-				 
+				    jaxbContext = JAXBContext.newInstance(Almacen.class);
+				    				 
 				    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-				 
+				    System.setProperty("javax.xml.accessExternalDTD", "all");
+				    
 				    almacen = (Almacen) jaxbUnmarshaller.unmarshal(xmlFile);
 				    Clientes = almacen.getCliente();
 				    Pedidos = almacen.getPedido();
