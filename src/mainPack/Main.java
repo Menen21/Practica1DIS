@@ -1,5 +1,6 @@
 package mainPack;
 
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -16,6 +17,7 @@ public class Main {
 		System.out.println("1.- Introducir Producto");
 		System.out.println("2.- Introducir Cliente");
 		System.out.println("3.- Introducir Pedido");
+		System.out.println("4.- Guardar en XML");
 		System.out.println("0.- Quit");
 	}
 	
@@ -157,21 +159,60 @@ public class Main {
 	
 	public static Pedido showSubmenuPedidos() throws IOException {
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		Producto producto = null;
-		Cliente destinatario = null;
-		String fecha = null;
-		int cantidad = 0;
+		String producto = null, calle = null, poblacion = null, pais = null, destinatario = null;
+		int cantidad = 0, fechaestimada = 0, numcalle = 0, codpostal = 0;
 		boolean success = false;
+		System.out.println("Nombre producto:");
+		producto = in.readLine();
 		while (!success) {
             try {
-        		System.out.println("Número:");
+        		System.out.println("Cantidad:");
         		cantidad = Integer.parseInt(in.readLine());
                 success = true;
             } catch (NumberFormatException e) {
                 System.out.println("Introducir un nº entero por favor");
             }
         }
-		Pedido pedido = new Pedido(producto, destinatario, cantidad, fecha);
+		System.out.println("Dirección:");
+		System.out.println("Calle:");
+		calle = in.readLine();
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Número:");
+        		numcalle = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Código postal:");
+        		codpostal = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir un nº entero por favor");
+            }
+        }
+		System.out.println("Población:");
+		poblacion = in.readLine();
+		System.out.println("País:");
+		pais = in.readLine();
+		System.out.println("Destinatario:");
+		poblacion = in.readLine();
+		success = false;
+		while (!success) {
+            try {
+        		System.out.println("Fecha de entrega estimada:");
+        		numcalle = Integer.parseInt(in.readLine());
+                success = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Introducir fecha con formato ddmmaaaa");
+            }
+        }
+		Pedido pedido = new Pedido(producto, cantidad, calle, numcalle, codpostal, poblacion, pais, destinatario, fechaestimada);
 		return pedido;
 	}
 	
@@ -199,6 +240,9 @@ public class Main {
 			case 3:
 				Pedido pedido_leido = showSubmenuPedidos();
 				Pedidos.add(pedido_leido);
+				break;
+			case 4:
+
 				break;
 			case 0:
 				break;

@@ -2,68 +2,102 @@ package mainPack;
 
 public class Pedido {
 	
-	private Producto producto;
-	private Cliente destinatario;
-	private int cantidad;
-	private String fecha;
+	private String producto, calle, poblacion, pais, destinatario;
+	private int cantidad, fechaestimada, numcalle, codpostal;
 	
-	
-	@Override
-	public String toString() {
-		return "Pedido [producto=" + producto + ", destinatario=" + destinatario + ", cantidad=" + cantidad + ", fecha="
-				+ fecha + "]";
-	}
-
-
-	public Pedido(Producto producto, Cliente destinatario, int cantidad, String fecha) {
+	public Pedido(String producto, int cantidad, String calle, int numcalle, int codpostal, String poblacion, String pais, String destinatario,
+			int fechaestimada) {
 		super();
 		this.producto = producto;
+		this.calle = calle;
+		this.poblacion = poblacion;
+		this.pais = pais;
 		this.destinatario = destinatario;
 		this.cantidad = cantidad;
-		this.fecha = fecha;
+		this.fechaestimada = fechaestimada;
+		this.numcalle = numcalle;
+		this.codpostal = codpostal;
 	}
 
+	@Override
+	public String toString() {
+		return "Pedido [producto=" + producto + ", calle=" + calle + ", poblacion=" + poblacion + ", pais=" + pais
+				+ ", destinatario=" + destinatario + ", cantidad=" + cantidad + ", fechaestimada=" + fechaestimada
+				+ ", numcalle=" + numcalle + ", codpostal=" + codpostal + "]";
+	}
 
-	public Producto getProducto() {
+	public String getProducto() {
 		return producto;
 	}
 
-
-	public void setProducto(Producto producto) {
+	public void setProducto(String producto) {
 		this.producto = producto;
 	}
 
+	public String getCalle() {
+		return calle;
+	}
 
-	public Cliente getDestinatario() {
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+
+	public String getPoblacion() {
+		return poblacion;
+	}
+
+	public void setPoblacion(String poblacion) {
+		this.poblacion = poblacion;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public String getDestinatario() {
 		return destinatario;
 	}
 
-
-	public void setDestinatario(Cliente destinatario) {
+	public void setDestinatario(String destinatario) {
 		this.destinatario = destinatario;
 	}
-
 
 	public int getCantidad() {
 		return cantidad;
 	}
 
-
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
-
-	public String getFecha() {
-		return fecha;
+	public int getFechaestimada() {
+		return fechaestimada;
 	}
 
+	public void setFechaestimada(int fechaestimada) {
+		this.fechaestimada = fechaestimada;
+	}
 
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	public int getNumcalle() {
+		return numcalle;
+	}
+
+	public void setNumcalle(int numcalle) {
+		this.numcalle = numcalle;
+	}
+
+	public int getCodpostal() {
+		return codpostal;
+	}
+
+	public void setCodpostal(int codpostal) {
+		this.codpostal = codpostal;
 	}
 	
 	
 	
-
 }
