@@ -24,135 +24,55 @@ public class Main {
 		System.out.println("4.- Guardar en XML");
 		System.out.println("0.- Quit");
 	}
-	
-	public static void writeToFile(String xml, String fileName) throws IOException {
-	    BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-	    try {
-			writer.write(xml);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			writer.close();
-		}
-	}
-	
+		
 	public static Producto showSubmenuProducto() throws IOException {
+		
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		int codigo = 0 , stock = 0, pasillo = 0, estanteria = 0, estante = 0,pendiente = 0;
-		String nombre = null, descripcion = null;
-		boolean success = false;
-		while (!success) {
-            try {
-            	System.out.println("Código:");
-        		codigo = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		
+		String codigo = null , stock = null, pasillo = null, estanteria = null, estante = null,pendiente = null, nombre = null, descripcion = null;
+
+        System.out.println("Código:");
+        codigo = in.readLine();
 		System.out.println("Nombre:");
 		nombre = in.readLine();
 		System.out.println("Descripción:");
 		descripcion = in.readLine();
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Unidades en stock:");
-        		stock = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		System.out.println("Unidades en stock:");
+        stock = in.readLine();
 		System.out.println("Localización:");
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Pasillo:");
-        		pasillo = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Estantería:");
-        		estanteria = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Estante:");
-        		estante = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Pendientes de entrada al almacén:");
-        		pendiente = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		System.out.println("Pasillo:");
+        pasillo = in.readLine();
+        System.out.println("Estantería:");
+        estanteria = in.readLine();
+        System.out.println("Estante:");
+        estante = in.readLine();
+        System.out.println("Pendientes de entrada al almacén:");
+        pendiente = in.readLine();
 		Producto producto = new Producto(codigo, stock, pasillo, estanteria, estante, pendiente, nombre, descripcion);
 		return producto;
 	}
 	
 	public static Cliente showSubmenuCliente() throws IOException {
+		
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		String nombre = null, apellidos = null, email = null, calle = null, poblacion = null, pais = null;
-		int telf = 0, numcalle = 0, codpostal = 0;
-		boolean success = false;
+		
+		String nombre = null, apellidos = null, email = null, calle = null, poblacion = null, pais = null, telf = null, numcalle = null, codpostal = null;
+
 		System.out.println("Nombre:");
 		nombre = in.readLine();
 		System.out.println("Apellidos:");
 		apellidos = in.readLine();
 		System.out.println("Email:");
 		email = in.readLine();
-		while (!success) {
-            try {
-        		System.out.println("Telf Contacto:");
-        		telf = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		System.out.println("Telf Contacto:");
+        telf = in.readLine();
 		System.out.println("Dirección:");
 		System.out.println("Calle:");
 		calle = in.readLine();
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Número:");
-        		numcalle = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Código postal:");
-        		codpostal = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		System.out.println("Número:");
+        numcalle = in.readLine();
+        System.out.println("Código postal:");
+        codpostal = in.readLine();
 		System.out.println("Población:");
 		poblacion = in.readLine();
 		System.out.println("País:");
@@ -162,60 +82,30 @@ public class Main {
 	}
 	
 	public static Pedido showSubmenuPedidos() throws IOException {
+		
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		String producto = null, calle = null, poblacion = null, pais = null, destinatario = null;
-		int cantidad = 0, fechaestimada = 0, numcalle = 0, codpostal = 0;
-		boolean success = false;
+		
+		String producto = null, calle = null, poblacion = null, pais = null, destinatario = null, cantidad = null, fechaestimada = null, numcalle = null, codpostal = null;
+
 		System.out.println("Nombre producto:");
 		producto = in.readLine();
-		while (!success) {
-            try {
-        		System.out.println("Cantidad:");
-        		cantidad = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		System.out.println("Cantidad:");
+        cantidad = in.readLine();        
 		System.out.println("Dirección:");
 		System.out.println("Calle:");
 		calle = in.readLine();
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Número:");
-        		numcalle = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Código postal:");
-        		codpostal = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir un nº entero por favor");
-            }
-        }
+		System.out.println("Número:");
+        numcalle = in.readLine();
+        System.out.println("Código postal:");
+        codpostal = in.readLine();
 		System.out.println("Población:");
 		poblacion = in.readLine();
 		System.out.println("País:");
 		pais = in.readLine();
 		System.out.println("Destinatario:");
 		poblacion = in.readLine();
-		success = false;
-		while (!success) {
-            try {
-        		System.out.println("Fecha de entrega estimada:");
-        		numcalle = Integer.parseInt(in.readLine());
-                success = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Introducir fecha con formato ddmmaaaa");
-            }
-        }
+		System.out.println("Fecha de entrega estimada:");
+        fechaestimada = in.readLine();
 		Pedido pedido = new Pedido(producto, cantidad, calle, numcalle, codpostal, poblacion, pais, destinatario, fechaestimada);
 		return pedido;
 	}
@@ -227,10 +117,8 @@ public class Main {
             //Create JAXB Context
             JAXBContext jaxbContext = JAXBContext.newInstance(Almacen.class);
              
-            //Create Marshaller
+            //Create Marshaler
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
- 
-            //Required formatting??
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
  
             //Print XML String to Console
@@ -278,9 +166,6 @@ public class Main {
 				almacen.setProducto(Productos);
 				almacen.setCliente(Clientes);
 				almacen.setPedido(Pedidos);
-//				System.out.println(almacen.getProducto().toString());
-//				System.out.println(almacen.getCliente().toString());
-//				System.out.println(almacen.getPedido().toString());
 
 				jaxbObjectToXML(almacen);
 

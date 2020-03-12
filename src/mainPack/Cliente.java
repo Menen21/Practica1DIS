@@ -1,8 +1,10 @@
 package mainPack;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Cliente")
 public class Cliente {
-	private String nombre, apellidos, email, calle, poblacion, pais;
-	private int telf, numcalle, codpostal;
+	private String nombre, apellidos, email, calle, poblacion, pais,numcalle, codpostal, telf;
 	
 	
 	
@@ -13,7 +15,14 @@ public class Cliente {
 				+ ", codpostal=" + codpostal + "]";
 	}
 
-	public Cliente(String nombre, String apellidos, String email, String calle, String poblacion, String pais, int telf, int numcalle, int codpostal) {
+	
+	public Cliente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Cliente(String nombre, String apellidos, String email, String calle, String poblacion, String pais, String telf, String numcalle, String codpostal) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -49,6 +58,14 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getTelf() {
+		return telf;
+	}
+
+	public void setTelf(String telf) {
+		this.telf = telf;
+	}
 
 	public String getCalle() {
 		return calle;
@@ -74,27 +91,20 @@ public class Cliente {
 		this.pais = pais;
 	}
 
-	public int getTelf() {
-		return telf;
-	}
 
-	public void setTelf(int telf) {
-		this.telf = telf;
-	}
-
-	public int getNumcalle() {
+	public String getNumcalle() {
 		return numcalle;
 	}
 
-	public void setNumcalle(int numcalle) {
+	public void setNumcalle(String numcalle) {
 		this.numcalle = numcalle;
 	}
 
-	public int getCodpostal() {
+	public String getCodpostal() {
 		return codpostal;
 	}
 
-	public void setCodpostal(int codpostal) {
+	public void setCodpostal(String codpostal) {
 		this.codpostal = codpostal;
 	}
 	

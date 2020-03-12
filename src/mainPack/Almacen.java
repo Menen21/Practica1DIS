@@ -18,7 +18,7 @@ public class Almacen implements Serializable{
 	private List <Pedido> pedido;
 	
 	@XmlElementWrapper(name="productos")
-	@XmlElement(name="Producto")
+//	@XmlElement(name="Producto")
 	public List<Producto> getProducto() {
 		return producto;
 	}
@@ -27,7 +27,7 @@ public class Almacen implements Serializable{
 		this.producto = producto;
 	}
 	@XmlElementWrapper(name="clientes")
-	@XmlElement(name="Cliente")
+//	@XmlElement(name="Cliente")
 	public List<Cliente> getCliente() {
 		return cliente;
 	}
@@ -36,7 +36,7 @@ public class Almacen implements Serializable{
 		this.cliente = cliente;
 	}
 	@XmlElementWrapper(name="pedidos")
-	@XmlElement(name="Pedido")
+//	@XmlElement(name="Pedido")
 	public List<Pedido> getPedido() {
 		return pedido;
 	}
