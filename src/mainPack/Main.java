@@ -14,7 +14,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 
-
 public class Main {
 
 
@@ -124,7 +123,8 @@ public class Main {
             JAXBContext jaxbContext = JAXBContext.newInstance(Almacen.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            jaxbMarshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", "\n<!DOCTYPE Almacen SYSTEM  \"DTD.dtd\">");
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+            jaxbMarshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone='no'?>\n<!DOCTYPE Almacen SYSTEM  \"DTD.dtd\">");
  
             File file = new File("almacen.xml");
              

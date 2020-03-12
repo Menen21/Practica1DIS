@@ -1,99 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone='no'?>
 <!DOCTYPE Almacen SYSTEM  "DTD.dtd">
 <Almacen>
-    <productos>
-        <producto>
-            <codigo>gfsn</codigo>
-            <nombre_producto>sfgb</nombre_producto>
-            <descripcion>sfgb</descripcion>
-            <stock>sbfg</stock>
-            <localizacion>
-                <pasillo>gbfs</pasillo>
-                <estanteria>bgf</estanteria>
-                <estante>bgfs</estante>
-            </localizacion>
-            <pendientes_de_entrada>bsfg</pendientes_de_entrada>
-        </producto>
-        <producto>
-            <codigo>gbfsgfbs</codigo>
-            <nombre_producto>gsfbgb</nombre_producto>
-            <descripcion>gbfsfgb</descripcion>
-            <stock>gbfsbgfs</stock>
-            <localizacion>
-                <pasillo>gbfsgbf</pasillo>
-                <estanteria>gbfsgbf</estanteria>
-                <estante>gbfsgfbs</estante>
-            </localizacion>
-            <pendientes_de_entrada>gfbsgbfs</pendientes_de_entrada>
-        </producto>
-    </productos>
+    <productos/>
     <clientes>
         <cliente>
-            <nombre>gfbs</nombre>
-            <apellidos>sbgf</apellidos>
-            <email>sfgb</email>
-            <telefono>sgfb</telefono>
+            <nombre>sda</nombre>
+            <apellidos>sad</apellidos>
+            <email>sd</email>
+            <telefono>sda</telefono>
             <direccion>
-                <calle>sfgb</calle>
-                <numero_calle>sfgb</numero_calle>
-                <cod_postal>sfgb</cod_postal>
-                <poblacion>sfgb</poblacion>
-                <pais>sfgb</pais>
-            </direccion>
-        </cliente>
-        <cliente>
-            <nombre>sdfsd</nombre>
-            <apellidos>sdfsfd</apellidos>
-            <email>sfdfdss</email>
-            <telefono>fdssfd</telefono>
-            <direccion>
-                <calle>fsdfds</calle>
-                <numero_calle>fdsdsfdf</numero_calle>
-                <cod_postal>fdsfdsfds</cod_postal>
-                <poblacion>fdfdsfsd</poblacion>
-                <pais>dfsfdsfsd</pais>
-            </direccion>
-        </cliente>
-        <cliente>
-            <nombre>bdffb</nombre>
-            <apellidos>fdbbfdfbd</apellidos>
-            <email>fbdfbdfbd</email>
-            <telefono>bdfbdffbd</telefono>
-            <direccion>
-                <calle>bfddfbbfd</calle>
-                <numero_calle>fbdbfdfbd</numero_calle>
-                <cod_postal>bfdfdbfb</cod_postal>
-                <poblacion>fbdbfdbfd</poblacion>
-                <pais>bfdbfdbfd</pais>
+                <calle>ds</calle>
+                <numero_calle>sda</numero_calle>
+                <cod_postal>sda</cod_postal>
+                <poblacion>dsa</poblacion>
+                <pais>sd</pais>
             </direccion>
         </cliente>
     </clientes>
-    <pedidos>
-        <pedido>
-            <producto_pedido>gbfgbfs</producto_pedido>
-            <cantidad>sfgbsfgg</cantidad>
-            <destinatario>bgsgfsbgsf</destinatario>
-            <direccion>
-                <calle>fsgfbgf</calle>
-                <numero_calle>sgfbgsfb</numero_calle>
-                <cod_postal>gsfbgfsgsf</cod_postal>
-                <poblacion>sgbfsfgb</poblacion>
-                <pais>gsbfgbsf</pais>
-            </direccion>
-            <fecha_entrega_estimada>bgsfgfsbg</fecha_entrega_estimada>
-        </pedido>
-        <pedido>
-            <producto_pedido>fghddfbg</producto_pedido>
-            <cantidad>bsgfsfgbfgs</cantidad>
-            <destinatario>gbfssfgbfgbs</destinatario>
-            <direccion>
-                <calle>sbgfgfbsgbfs</calle>
-                <numero_calle>bsgbgs</numero_calle>
-                <cod_postal>bsgfsbgfsgfb</cod_postal>
-                <poblacion>bsgfgbfsbgfs</poblacion>
-                <pais>bgfssbgfbgfs</pais>
-            </direccion>
-            <fecha_entrega_estimada>gsfbsbgfbgfs</fecha_entrega_estimada>
-        </pedido>
-    </pedidos>
+    <pedidos/>
 </Almacen>
