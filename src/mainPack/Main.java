@@ -108,7 +108,7 @@ public class Main {
 		System.out.println("País:");
 		pais = in.readLine();
 		System.out.println("Destinatario:");
-		poblacion = in.readLine();
+		destinatario = in.readLine();
 		System.out.println("Fecha de entrega estimada:");
         fechaestimada = in.readLine();
         Direccion direccion = new Direccion(calle, numcalle, poblacion, pais, codpostal);
@@ -124,7 +124,7 @@ public class Main {
             JAXBContext jaxbContext = JAXBContext.newInstance(Almacen.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            jaxbMarshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", "\n<!DOCTYPE Example SYSTEM  \"DTD.dtd\">");
+            jaxbMarshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", "\n<!DOCTYPE Almacen SYSTEM  \"DTD.dtd\">");
  
             File file = new File("almacen.xml");
              
@@ -133,7 +133,7 @@ public class Main {
  
         } catch (JAXBException e) {
 
-            System.out.println("No ha podido leerse el fichero");
+        		e.printStackTrace();
         }
     }
 	
@@ -148,15 +148,19 @@ public class Main {
 		java.io.BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		while (menu != 0) {
 			generateMenu();
+			boolean success = false;
 			
+			while(success != true) {
 			try {
 				menu = Integer.parseInt(in.readLine());
+				success = true;
 			} catch (NumberFormatException e1) {
 				// TODO Auto-generated catch block
 				System.out.println("Introduzca un número válido");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				System.out.println("Introduzca un número válido");
+			}
 			}
 			
 			switch (menu) {

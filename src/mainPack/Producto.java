@@ -32,7 +32,7 @@ public class Producto implements Serializable{
 		this.localizacion = localizacion;
 		this.pendiente = pendiente;
 	}
-	@XmlElement(name= "nombre")
+	@XmlElement(name= "nombre_producto")
 	public String getNombre() {
 		return nombre;
 	}
@@ -65,7 +65,7 @@ public class Producto implements Serializable{
 		this.stock = stock;
 	}
 
-	@XmlElement(name= "pendiente")
+	@XmlElement(name= "pendientes_de_entrada")
 	public String getPendiente() {
 		return pendiente;
 	}

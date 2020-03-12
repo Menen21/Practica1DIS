@@ -9,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Pedido")
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(propOrder = { "producto", "cantidad", "destinatario", "direccion", "fechaestimada" })
+@XmlType(propOrder = { "producto", "cantidad", "destinatario", "direccion", "fecha_entrega_estimada" })
 public class Pedido implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private String producto,  destinatario, cantidad, fechaestimada;
+	private String producto,  destinatario, cantidad, fecha_entrega_estimada;
 	private Direccion direccion;
 	
 	
@@ -23,17 +23,17 @@ public class Pedido implements Serializable {
 	}
 
 
-	public Pedido(String producto, String destinatario, String cantidad, String fechaestimada, Direccion direccion) {
+	public Pedido(String producto, String destinatario, String cantidad, String fecha_entrega_estimada, Direccion direccion) {
 		super();
 		this.producto = producto;
 		this.destinatario = destinatario;
 		this.cantidad = cantidad;
-		this.fechaestimada = fechaestimada;
+		this.fecha_entrega_estimada = fecha_entrega_estimada;
 		this.direccion = direccion;
 	}
 
 
-	@XmlElement(name= "producto")
+	@XmlElement(name= "producto_pedido")
 	public String getProducto() {
 		return producto;
 	}
@@ -73,14 +73,14 @@ public class Pedido implements Serializable {
 
 
 	@XmlElement(name= "fecha_entrega_estimada")
-	public String getFechaestimada() {
-		return fechaestimada;
+	public String getfecha_entrega_estimada() {
+		return fecha_entrega_estimada;
 	}
 
 
 
-	public void setFechaestimada(String fechaestimada) {
-		this.fechaestimada = fechaestimada;
+	public void setfecha_entrega_estimada(String fecha_entrega_estimada) {
+		this.fecha_entrega_estimada = fecha_entrega_estimada;
 	}
 
 
