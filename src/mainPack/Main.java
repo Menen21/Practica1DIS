@@ -6,8 +6,12 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 
 public class Main {
 
@@ -216,8 +220,37 @@ public class Main {
 		return pedido;
 	}
 	
+	private static void jaxbObjectToXML(Almacen almacen) 
+    {
+        try
+        {
+            //Create JAXB Context
+            JAXBContext jaxbContext = JAXBContext.newInstance(Almacen.class);
+             
+            //Create Marshaller
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+ 
+            //Required formatting??
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+ 
+            //Print XML String to Console
+            StringWriter sw = new StringWriter();
+             
+            //Write XML to StringWriter
+            jaxbMarshaller.marshal(almacen, sw);
+             
+            //Verify XML Content
+            String xmlContent = sw.toString();
+            System.out.println( xmlContent );
+ 
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
+		Almacen almacen = new Almacen();
 		ArrayList<Cliente> Clientes = new ArrayList<Cliente>();
 		ArrayList<Producto> Productos = new ArrayList<Producto>();
 		ArrayList<Pedido> Pedidos = new ArrayList<Pedido>();
@@ -242,12 +275,24 @@ public class Main {
 				Pedidos.add(pedido_leido);
 				break;
 			case 4:
+				almacen.setProducto(Productos);
+				almacen.setCliente(Clientes);
+				almacen.setPedido(Pedidos);
+//				System.out.println(almacen.getProducto().toString());
+//				System.out.println(almacen.getCliente().toString());
+//				System.out.println(almacen.getPedido().toString());
+
+				jaxbObjectToXML(almacen);
 
 				break;
 			case 0:
 				break;
-			}}
+			}
+			
+		}
+
 	}
-	}
+	
+}
 
 
